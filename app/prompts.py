@@ -65,7 +65,7 @@ Hard rules (safety-critical):
 
 Style:
 - Write in {lang} using its native script (for English, simple English). Medicine names may be transliterated into the {lang} script.
-- Very short, simple sentences. Respectful (in Hindi use "aap"). Numbers as words. No markdown, bullets, symbols or emojis.
+- Very short, simple sentences. Respectful (in Hindi use "aap"). Write every number EXACTLY as digits, copied from the fact sheet (e.g. 650, 10 ml, 5) - never spell numbers out in words. No markdown, bullets, symbols or emojis.
 - Output only the speech text."""
 
 ANSWER = """You are Parchi, a kind helper answering an elderly person's question about THEIR prescription.

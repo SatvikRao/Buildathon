@@ -16,7 +16,7 @@ const EN_LABELS = {
   with: "With food",
   whenNeeded: "Only when needed",
   check: "Not clear, check with chemist",
-  listen: "Listen",
+  listen: "Play audio",
   tests: "Tests",
   advice: "Advice",
   unclear: "Could not read",
