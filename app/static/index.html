@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parchi</title>
+  <meta name="theme-color" content="#0f766e">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">℞</span>
+      <div>
+        <h1>Parchi</h1>
+        <p class="tag">Your prescription, explained aloud</p>
+      </div>
+    </div>
+    <label class="lang">
+      <span class="sr">Language</span>
+      <select id="lang">
+        <option value="hi-IN">हिंदी</option>
+        <option value="ta-IN">தமிழ்</option>
+        <option value="te-IN">తెలుగు</option>
+        <option value="kn-IN">ಕನ್ನಡ</option>
+        <option value="ml-IN">മലയാളം</option>
+        <option value="bn-IN">বাংলা</option>
+        <option value="mr-IN">मराठी</option>
+        <option value="gu-IN">ગુજરાતી</option>
+        <option value="pa-IN">ਪੰਜਾਬੀ</option>
+        <option value="od-IN">ଓଡ଼ିଆ</option>
+        <option value="en-IN">English</option>
+      </select>
+    </label>
+  </header>
+
+  <main>
+    <!-- Step 1: capture -->
+    <section id="capture" class="card">
+      <label class="big-btn primary" for="photo">
+        <span class="ico">📷</span>
+        <span>Take photo of prescription</span>
+      </label>
+      <input id="photo" type="file" accept="image/*,application/pdf" capture="environment" hidden>
+      <div class="row">
+        <label class="link-btn" for="photo-gallery">Upload from gallery</label>
+        <input id="photo-gallery" type="file" accept="image/*,application/pdf" hidden>
+        <button id="sample" class="link-btn" type="button">Try a sample</button>
+      </div>
+      <img id="preview" alt="Your prescription" hidden>
+    </section>
+
+    <!-- Progress -->
+    <section id="status" class="status" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="status-text">Reading your parchi…</p>
+    </section>
+
+    <!-- Error -->
+    <section id="error" class="card error" hidden>
+      <p id="error-text"></p>
+    </section>
+
+    <!-- OCR text, editable fallback -->
+    <details id="raw-wrap" class="card" hidden>
+      <summary>What we read (tap to fix)</summary>
+      <textarea id="raw" rows="7" placeholder="Type the prescription here if the photo was unclear"></textarea>
+      <button id="reexplain" class="big-btn" type="button">Explain again</button>
+    </details>
+
+    <!-- Step 2: listen -->
+    <section id="listen" class="card" hidden>
+      <button id="play" class="big-btn primary" type="button">
+        <span class="ico">🔊</span><span id="play-label">Listen</span>
+      </button>
+      <p id="summary" class="summary"></p>
+    </section>
+
+    <!-- Step 3: schedule card -->
+    <section id="schedule" class="card" hidden>
+      <div class="sched-head">
+        <h2 id="l-title">Medicine schedule</h2>
+        <p id="meta" class="meta"></p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th id="l-medicine">Medicine</th>
+              <th title="Morning">🌅<small id="l-morning">Morning</small></th>
+              <th title="Afternoon">☀️<small id="l-afternoon">Afternoon</small></th>
+              <th title="Night">🌙<small id="l-night">Night</small></th>
+              <th>🍽️<small id="l-food">Food</small></th>
+              <th id="l-days">Days</th>
+              <th><span class="sr">Listen</span></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <ul id="extras" class="extras"></ul>
+      <p class="disclaimer">⚕️ <span id="l-disclaimer">Parchi explains, it doesn't prescribe. Always confirm with your doctor or chemist.</span></p>
+      <button id="share" class="big-btn whatsapp" type="button">
+        <span class="ico">💬</span><span id="l-share">Share on WhatsApp</span>
+      </button>
+    </section>
+
+    <!-- Step 4: ask -->
+    <section id="ask" class="card" hidden>
+      <div id="chat" class="chat"></div>
+      <button id="mic" class="mic" type="button" aria-label="Hold to ask a question">
+        <span class="ico">🎙️</span>
+        <span id="mic-label">Hold to ask</span>
+      </button>
+      <p class="hint">e.g. “khaana khaane ke pehle ya baad?”</p>
+    </section>
+  </main>
+
+  <footer>Built with Sarvam AI · Vision · Sarvam-105B · Bulbul · Saaras</footer>
+  <audio id="player" hidden></audio>
+  <script src="/static/app.js"></script>
+</body>
+</html>

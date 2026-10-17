@@ -1,0 +1,7 @@
+sarvamai
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+pillow
+pillow-heif
